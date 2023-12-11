@@ -122,9 +122,10 @@ function seleccionarMascotaJugador() {
   }
   
   botonMascotaJugador.disabled = true;
-  extrarAtaques(mascotaJugador)
+  extraerAtaques(mascotaJugador)
+  seleccionarMascotaEnemigo(mascotaEnemigo);
 }
-function extrarAtaques(mascotaJugador) {
+function extraerAtaques(mascotaJugador) {
   let ataques
   for (let i = 0; i < mokepones.length; i++) {
     if (mascotaJugador === mokepones[i].nombre) {
@@ -157,7 +158,7 @@ function secuenciaAtaque() {
         console.log(ataqueJugador)
         boton.style.background = '#112f58';
       } else {
-        ataqueJugador.push('TIERRA');
+        ataqueJugador.push('PLANTA');
         console.log(ataqueJugador)
         boton.style.background = '#112f58';
       }
@@ -168,7 +169,6 @@ function secuenciaAtaque() {
 function seleccionarMascotaEnemigo() {
   let mascotaAleatoria = aleatorio(0, mokepones.length -1);
   spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
-  //ataquesMokeponEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
   secuenciaAtaque()
 }
 function ataqueAleatorio() {
@@ -181,7 +181,6 @@ function ataqueAleatorio() {
   } else {
     ataqueEnemigo.push = ("PLANTA");
   }
-  console.log(ataqueEnemigo)
   iniciarPelea();
 }
 function iniciarPelea () {
@@ -200,7 +199,7 @@ function combate() {
       crearMensaje('EMPATE')
       victoriasJugador++
       spanVidasJugador.innerHTML = victoriasJugador
-    } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA') { 
+    } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'PLANTA') { 
       indexAmbosOponente(index, index)
       crearMensaje('GANASTE')
       victoriasJugador++
@@ -210,7 +209,7 @@ function combate() {
       crearMensaje('GANASTE')
       victoriasJugador++
       spanVidasJugador.innerHTML = victoriasJugador
-    } else if (ataqueJugador[index] === "TIERRA" && ataqueEnemigo[index] === 'AGUA' ) {
+    } else if (ataqueJugador[index] === "PLANTA" && ataqueEnemigo[index] === 'AGUA' ) {
       indexAmbosOponente(index, index)
       crearMensaje('GANASTE')
       victoriasJugador++
@@ -219,7 +218,7 @@ function combate() {
       indexAmbosOponente(index, index)
       crearMensaje('PERDISTE')
       victoriasEnemigo++
-      spanMascotaEnemigo.innerHTML = victoriasEnemigo
+      spanVidasEnemigo.innerHTML = victoriasEnemigo
     }
   }
   revisarVictorias();
