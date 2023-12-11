@@ -55,7 +55,7 @@ class Mokepon {
     this.ancho = 80;
     this.alto = 80;
     this.mapaFoto = new Image();
-    this.mapaFoto.src = fotoMapa
+    this.mapaFoto = fotoMapa
     this.velocidadX = 0
     this.velocidadY = 0
   }
@@ -73,7 +73,7 @@ class Mokepon {
 let hipodoge = new Mokepon("Hipodoge", "/mokepon/images/Hipodoge.png", 5, '/mokepon/images/tucanlio.png');
 let capipepo = new Mokepon("Capipepo", "/mokepon/images/Capipepo.png", 5, '/mokepon/images/serpentin.png');
 let ratigueya = new Mokepon("Ratigueya", "/mokepon/images/Ratigueya.png", 5, '/mokepon/images/flaminllo.png');
-let hipodogEnemigo = new Mokepon("Hipodoge", "/mokepon/images/Hipodoge.png", 5,);
+let hipodogeEnemigo = new Mokepon("Hipodoge", "/mokepon/images/Hipodoge.png", 5,);
 let capipepoEnemigo = new Mokepon("Capipepo", "/mokepon/images/Capipepo.png", 5,);
 let ratigueyaEnemigo = new Mokepon("Ratigueya", "/mokepon/images/Ratigueya.png", 5,);
 
@@ -120,7 +120,6 @@ function iniciarJuego() {
 
   botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
   botonReiniciar.addEventListener("click", reiniciarJuego);
-
   sectionReiniciar.style.display = "none";
 }
 
@@ -292,7 +291,7 @@ function reiniciarJuego() {
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-function pintarCanvas() {
+function pintarMokepon() {
   if (mascotaJugadorObjeto) {
     mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX;
     mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY;
@@ -305,7 +304,7 @@ function pintarCanvas() {
       mapa.height
     );
     mascotaJugadorObjeto.pintarMokepon();
-    hipodogEnemigo.pintarMokepon();
+    hipodogeEnemigo.pintarMokepon();
     capipepoEnemigo.pintarMokepon();
     ratigueyaEnemigo.pintarMokepon();
   }
