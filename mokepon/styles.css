@@ -145,11 +145,20 @@ input:checked + label, input:hover + label {
     align-items: center;
     justify-content: center;
 }
-#mapa {
-    border: 2px solid white;
+
+#ver-mapa button {
+    width: 130px;
+    font-size: 23px;
+    color: black;
+    background-color: #89CFFD;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
-@media (max-width: 800px){
+@media (max-width: 560px){
     .tarjetas {
         flex-direction: column;
     }
@@ -158,3 +167,11 @@ input:checked + label, input:hover + label {
         flex-direction: column;
     }
 }
+@media (max-width: 530px) {
+    #ver-mapa div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+     
