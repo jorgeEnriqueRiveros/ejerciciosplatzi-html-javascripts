@@ -18,7 +18,8 @@ const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
 const contenedorAtaques = document.getElementById("contenedor-ataques");
 const sectionVerMapa = document.getElementById("ver-mapa");
 const mapa = document.getElementById("mapa");
-
+// todas las variables del juego
+let jugadorId = [];
 let mokepones = [];
 let ataqueJugador = [];
 let ataqueEnemigo = [];
@@ -173,8 +174,21 @@ function iniciarJuego() {
 
   botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
   botonReiniciar.addEventListener("click", reiniciarJuego);
-}
 
+  unirseAlJuego()
+}
+function unirseAlJuego() {
+  fetch('http://localhost:8080/unirse')
+    .then(function (res) {
+      if (res.ok) {
+      res.text()
+      .then(function (respuesta) {
+        console.log(respuesta)
+        jugadorId = respuesta
+      })
+    }
+  })
+}
 function seleccionarMascotaJugador() {
     if (inputHipodoge.checked) {
     spanMascotaJugador.innerHTML = inputHipodoge.id;
@@ -189,11 +203,27 @@ function seleccionarMascotaJugador() {
     alert("Selecciona una mascota");
     return;
   }
+
+  seleccionarMokepon(mascotaJugador);
+
   sectionSeleccionarMascota.style.display = "none";
   extraerAtaques(mascotaJugador);
   sectionVerMapa.style.display = "flex";
   iniciarMapa()
 }
+
+function seleccionarMokepon(mascotaJugador) {
+  fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+    method: 'post',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      mokepon: mascotaJugador
+    })
+  })
+}
+
 function extraerAtaques(mascotaJugador) {
   let ataques;
   for (let i = 0; i < mokepones.length; i++) {
@@ -352,6 +382,9 @@ function pintarCanvas() {
       mapa.height
   )
     mascotaJugadorObjeto.pintarMokepon()
+   
+    enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
     ratigueyaEnemigo.pintarMokepon()
@@ -361,6 +394,20 @@ function pintarCanvas() {
       revisarColision(ratigueyaEnemigo)
     }
 }
+
+function enviarPosicion(x, y) {
+  fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+  method: 'post',
+  headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      x,
+      y
+    })
+  })
+}
+
 function moverDerecha() {
  mascotaJugadorObjeto.velocidadX = 5
 }
