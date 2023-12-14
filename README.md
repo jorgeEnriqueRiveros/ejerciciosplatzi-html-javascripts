@@ -110,8 +110,7 @@ const icons = {
   html: "https://iconify.design/icon/html5",
   css: "https://iconify.design/icon/css3",
 };
-
-const tutorials = {
+tutorials = {
   javascript: {
     url: "https://www.youtube.com/watch?v=vFifttmO-Lk",
     topics: ["Introducción a JavaScript", "Funciones", "Objetos", "Arrays"],
@@ -148,53 +147,7 @@ Aquí tienes algunos tutoriales que te ayudarán a aprender los lenguajes usados
     * **${tutorials.html.topics.join("**, **")}**
 * **[CSS](https://${tutorials.css.url})**
     * **${tutorials.css.topics.join("**, **")}**
- 
-* Controles
-Tecla w: Mover la mascota hacia arriba.
-Tecla s: Mover la mascota hacia abajo.
-Tecla a: Mover la mascota hacia la izquierda.
-Tecla d: Mover la mascota hacia la derecha.
-Ataques
-[icono](icons.css)FUEGO:∗∗Da 
-n
-~
- odetipofuego.∗∗∗[icono]({icons.css}) AGUA: Daño de tipo agua.
-icono TIERRA: Daño de tipo tierra.
-Equilibrio de los ataques
-Los ataques de tipo fuego son fuertes contra los ataques de tipo tierra, pero débiles contra los ataques de tipo agua.
-
-Los ataques de tipo agua son fuertes contra los ataques de tipo fuego, pero débiles contra los ataques de tipo tierra.
-
-Los ataques de tipo tierra son fuertes contra los ataques de tipo agua, pero débiles contra los ataques de tipo fuego.
-
-Mejoras futuras
-Agregar más mokepon.
-Agregar más ataques.
-Agregar un modo multijugador.
-Licencia
-El juego está licenciado bajo la licencia MIT.
-
-Este código genera la siguiente sección de tutoriales en tu README.md:
-
-markdown
-
-Tutoriales
-Aquí tienes algunos tutoriales que te ayudarán a aprender los lenguajes usados en este juego:
-
-JavaScript: https://www.youtube.com/watch?v=vFifttmO-Lk
-Introducción a JavaScript
-Funciones
-Objetos
-Arrays
-HTML: https://www.youtube.com/watch?v=SaO1GMv3nuY
-Estructura básica de un documento HTML
-Elementos HTML
-Atributos HTML
-CSS: https://www.youtube.com/watch?v=R-Is42RK8W8
-Introducción a CSS
-Propiedades CSS
-Reglas CSS
-
+    * 
 
 
 
