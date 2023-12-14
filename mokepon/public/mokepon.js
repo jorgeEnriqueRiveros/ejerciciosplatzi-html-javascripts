@@ -48,7 +48,7 @@ let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
 let intervalo
 let mapaBackground = new Image()
-mapaBackground.src = '/images/mokemap.jpg'
+mapaBackground.src = '/public/images/mokemap.jpg'
 let alturaQueBuscamos
 let anchoDelMapa = window.innerWidth - 20
 const anchoMaximoDelMapa = 700
@@ -90,11 +90,11 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', '/images/Hipodoge.png', 5, '/images/tucanlio.png')
+let hipodoge = new Mokepon('Hipodoge', '/public/images/Hipodoge.png', 5, '/public/images/tucanlio.png')
 
-let capipepo = new Mokepon('Capipepo', '/images/Capipepo.png', 5, '/images/flaminllo.png')
+let capipepo = new Mokepon('Capipepo', '/public/images/Capipepo.png', 5, '/public/images/flaminllo.png')
 
-let ratigueya = new Mokepon('Ratigueya', '/images/Ratigueya.png', 5, '/images/serpentin.png')
+let ratigueya = new Mokepon('Ratigueya', '/public/images/Ratigueya.png', 5, '/public/images/serpentin.png')
 
 const HIPODOGE_ATAQUES = [
     { nombre: '💧', id: 'boton-agua' },
@@ -421,11 +421,11 @@ function enviarPosicion(x, y) {
                     const mokeponNombre = enemigo.mokepon.nombre || ""
 
                     if (mokeponNombre === "Hipodoge") {
-                    mokeponEnemigo = new Mokepon('Hipodoge', '/images/Hipodoge.png', 5, '/images/tucanlio.png', enemigo.id)
+                    mokeponEnemigo = new Mokepon('Hipodoge', '/public/images/Hipodoge.png', 5, '/public/images/tucanlio.png', enemigo.id)
                     } else if (mokeponNombre === "Capipepo") {
-                    mokeponEnemigo = new Mokepon('Capipepo', '/images/Capipepo.png', 5, '/images/flaminllo.png', enemigo.id)
+                    mokeponEnemigo = new Mokepon('Capipepo', '/public/images/Capipepo.png', 5, '/public/images/flaminllo.png', enemigo.id)
                     } else if (mokeponNombre === "Ratigueya") {
-                    mokeponEnemigo = new Mokepon('Ratigueya', '/images/Ratigueya.png', 5, '/images/serpentin.png', enemigo.id)
+                    mokeponEnemigo = new Mokepon('Ratigueya', '/public/images/Ratigueya.png', 5, '/public/images/serpentin.png', enemigo.id)
                     }
 
                     mokeponEnemigo.x = enemigo.x 
@@ -461,16 +461,16 @@ function detenerMovimiento() {
 
 function sePresionoUnaTecla(event) {
     switch (event.key) {
-        case 'ArrowUp':
+        case 'w':
             moverArriba()
             break
-        case 'ArrowDown':
+        case 's':
             moverAbajo()
             break
-        case 'ArrowLeft':
+        case 'a':
             moverIzquierda()
             break
-        case 'ArrowRight':
+        case 'd':
             moverDerecha()
             break
         default:
