@@ -1,0 +1,209 @@
+# swagger.yaml
+
+swagger: '2.0'
+info:
+  title: Mokepon Game API
+  version: '1.0'
+paths:
+  /unirse:
+    get:
+      summary: Initiates the player's joining process.
+      responses:
+        '200':
+          description: Player successfully joined.
+
+  /seleccionar-mascota:
+    post:
+      summary: Allows the player to select their Mokepon.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              mascota:
+                type: string
+      responses:
+        '200':
+          description: Mokepon selected successfully.
+
+  /ataques/{mascota}:
+    get:
+      summary: Retrieves the attacks available for the selected Mokepon.
+      parameters:
+        - in: path
+          name: mascota
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Returns the list of attacks for the selected Mokepon.
+
+  /mostrar-ataques:
+    get:
+      summary: Displays the attacks on the UI.
+      responses:
+        '200':
+          description: Attacks displayed successfully.
+
+  /secuencia-ataque:
+    post:
+      summary: Handles the player's attack sequence.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              ataque:
+                type: string
+      responses:
+        '200':
+          description: Attack sequence recorded.
+
+  /enviar-ataques:
+    post:
+      summary: Sends the player's attack sequence to the server.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              ataques:
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Attacks sent successfully.
+
+  /obtener-ataques:
+    get:
+      summary: Retrieves the opponent's attack sequence.
+      responses:
+        '200':
+          description: Returns the opponent's attack sequence.
+
+  /seleccionar-mascota-enemigo:
+    get:
+      summary: Displays the opponent's Mokepon.
+      responses:
+        '200':
+          description: Opponent's Mokepon selected successfully.
+
+  /index-ambos-oponente:
+    get:
+      summary: Indexes the attacks of both the player and the opponent.
+      responses:
+        '200':
+          description: Attacks indexed successfully.
+
+  /combate:
+    post:
+      summary: Handles the combat logic.
+      responses:
+        '200':
+          description: Combat result processed successfully.
+
+  /revisar-vidas:
+    get:
+      summary: Checks the overall game result based on victories.
+      responses:
+        '200':
+          description: Game result checked successfully.
+
+  /crear-mensaje:
+    post:
+      summary: Creates messages for the combat events.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              resultado:
+                type: string
+      responses:
+        '200':
+          description: Message created successfully.
+
+  /crear-mensaje-final:
+    post:
+      summary: Creates the final game result message.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              resultadoFinal:
+                type: string
+      responses:
+        '200':
+          description: Final message created successfully.
+
+  /reiniciar-juego:
+    post:
+      summary: Restarts the game.
+      responses:
+        '200':
+          description: Game restarted successfully.
+
+  /pintar-canvas:
+    get:
+      summary: Renders the game canvas.
+      responses:
+        '200':
+          description: Canvas rendered successfully.
+
+  /enviar-posicion:
+    post:
+      summary: Sends the player's position to the server.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              x:
+                type: number
+              y:
+                type: number
+      responses:
+        '200':
+          description: Position sent successfully.
+
+  /iniciar-mapa:
+    get:
+      summary: Initializes the game map.
+      responses:
+        '200':
+          description: Game map initialized successfully.
+
+  /obtener-objeto-mascota:
+    get:
+      summary: Retrieves the Mokepon object based on the selected Mokepon.
+      responses:
+        '200':
+          description: Mokepon object retrieved successfully.
+
+  /revisar-colision:
+    get:
+      summary: Checks for collisions with enemy Mokepons.
+      responses:
+        '200':
+          description: Collision checked successfully.
+
+  /iniciar-juego:
+    get:
+      summary: Initiates the game.
+      responses:
+        '200':
+          description: Game initiated successfully.
